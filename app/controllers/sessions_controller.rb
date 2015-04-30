@@ -1,0 +1,17 @@
+class SessionsController < ApplicationController
+  def new
+  end
+
+  def create
+    user = User.find_by(name: params[:session][:name])
+    if user && user.authenticate(params[:session][:password])
+      session[:user_id] = user.id
+      flash[:notice] = "Logged in!"
+      redirect_to root_url
+    else
+      flash[:notice] = "Invalid username or password"
+      render "new"
+    end
+  end
+
+end
