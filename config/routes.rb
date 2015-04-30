@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :answers, :except => [:destroy]
   end
 
-  resource :session, :only => [:add, :create, :destroy]
+  resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
 
   root 'questions#index'
