@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
  has_many :answers
  has_many :responses
  has_many :votes, foreign_key: :voter_id
+
+ validates :name, presence: true, uniqueness: true
+ validates :password, presence: true, confirmation: true
+ validates :password_confirmation, presence: true
 end
