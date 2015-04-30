@@ -6,7 +6,6 @@ class CreateQuestions < ActiveRecord::Migration
       t.boolean :answered, default: false
       t.references :user
       t.timestamps
-
     end
   end
 end
