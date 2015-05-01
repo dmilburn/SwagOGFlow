@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   root 'questions#index'
 
   post '/votes', to: 'votes#create'
+
+  get '/popular', to: 'questions#popular'
 end
