@@ -17,4 +17,15 @@ RSpec.feature "User Sign Ip", :type => :feature do
     click_on "Save Session"
     expect(page).to have_content("Logged in!")
   end
+
+  scenario "An unsuccessful sign in reloads the sign in form" do
+    User.create(name: "test_user",
+                password: "password",
+                password_confirmation: "password")
+    visit signin_path
+    fill_in "session_name", :with => "test_user"
+    fill_in "session_password", :with => "not_password"
+    click_on "Save Session"
+    expect(page).to have_content("Invalid username or password")
+  end
 end
