@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+	before_action :bounce_guest, only: [:new]
+
   def index
     @questions = Question.all
   end
@@ -23,5 +25,12 @@ class QuestionsController < ApplicationController
 
 	def question_params
 		params.require(:question).permit(:title, :body, :user_id)
+	end
+
+	def bounce_guest
+		if !current_user
+			flash[:notice] = "Please sign in to view that page."
+			redirect_to signin_path
+		end
 	end
 end
