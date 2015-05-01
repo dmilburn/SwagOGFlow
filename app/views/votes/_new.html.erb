@@ -1,1 +1,2 @@
-<%= link_to "UpVote"%> <%= link_to "DownVote"%>
+<%= link_to "UpVote", votes_path(question_id: votable_type, value: 1)%>
+<%= link_to "DownVote"%>
