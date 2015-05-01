@@ -1,7 +1,8 @@
 class ResponsesController < ApplicationController
 
   def new
-    @response = Response.new
+    @question = Question.find(params[:question_id])
+    @response = @question.responses.build
   end
 
   private
