@@ -4,7 +4,7 @@ class VotesController < ApplicationController
     type_instance = votable_type.find(params[:vote][:votable_id])
     vote = type_instance.votes.create(vote_params)
     vote.voter_id = current_user.id
-    redirect_to get_question_path(type_instance)
+    redirect_to page_voted_from_path
   end
 
   def vote_params
