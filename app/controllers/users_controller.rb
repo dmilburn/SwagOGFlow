@@ -9,8 +9,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url flash[:notice] = "You're signed up!"
     else
-      flash[:notice] = "Unable to create user, please try again."
-      render "new"
+      flash[:notice] = @user.error_string
+      redirect_to signup_path
     end
   end
 

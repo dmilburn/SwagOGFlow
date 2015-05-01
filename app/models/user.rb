@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
  validates :name, presence: true, uniqueness: true
  validates :password, presence: true, confirmation: true
  validates :password_confirmation, presence: true
+
+ def error_string
+  self.errors.full_messages.join(",\n")
+ end
 end
