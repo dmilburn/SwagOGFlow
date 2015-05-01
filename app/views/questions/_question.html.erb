@@ -1,5 +1,6 @@
 <h2><%= link_to question.title, question_path(question) %></h2>
 <%= link_to question.user.name, user_path(question.user.id) %><br>
+<%= question.count_votes %><br>
 Body:
 <%= question.body %><br>
 Created at:
@@ -8,10 +9,6 @@ Tags:
 <% question.tags.each do |tag|%>
   <%= tag.name %>
 <% end %><br>
-<%= question.votes %><br>
-<% if current_user %>
-  <%= render '/votes/new' %>
-<% end %>
 <%= link_to "Add Response", new_question_response_path(question.id) %>
 
 
