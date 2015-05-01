@@ -1,6 +1,6 @@
 <h2><%= link_to question.title, question_path(question) %></h2>
 <%= link_to question.user.name, user_path(question.user.id) %><br>
-<%= question.count_votes %><%= render 'votes/new'%><br>
+<%= question.count_votes %> <%= render 'votes/new'%><br>
 Body:
 <%= question.body %><br>
 Created at:
