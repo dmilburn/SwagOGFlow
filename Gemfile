@@ -43,5 +43,6 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl'
   gem 'database_cleaner'
+  gem 'capybara', '~> 2.4'
 end
 
