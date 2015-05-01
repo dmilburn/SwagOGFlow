@@ -7,6 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<%= nav_bar do %>
+  <%= menu_group do %>
+    <%= menu_item "SwagOGFlow", root_path %>
+    <% if current_user %>
+      <%= menu_item "My profile", user_path(current_user) %>
+      <%= menu_item "Sign out", signout_path %>
+    <% else %>
+      <%= menu_item "Sign up", signup_path %>
+      <%= menu_item "Sign in", signin_path %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
  <%= flash[:notice] %>
  <%= yield %>
 
