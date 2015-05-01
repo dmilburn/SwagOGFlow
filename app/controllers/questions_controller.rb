@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :gate_keeper, only: [:new]
 
   def index
-    @questions = Question.all
+    @questions = Question.all.order(created_at: :desc)
   end
 
   def new
