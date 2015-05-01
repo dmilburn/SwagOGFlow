@@ -6,6 +6,11 @@ class QuestionsController < ApplicationController
     @questions = Question.all.order(created_at: :desc)
   end
 
+  def popular
+    @questions = Question.all
+    @questions = @questions.sort{|a, b| b.count_votes <=> a.count_votes}
+  end
+
   def new
     @question = Question.new
   end
