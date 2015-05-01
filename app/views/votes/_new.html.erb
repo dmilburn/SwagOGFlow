@@ -1,1 +1,1 @@
-<%= link_to image_tag("upvote.png"), votes_path(vote: {votable_id: votable.id, value: 1, votable_type: votable.class}), method: 'post' %>
+<%= link_to image_tag("downvote.png"), votes_path(vote: {votable_id: votable.id, value: -1, votable_type: votable.class}), method: 'post'%>
