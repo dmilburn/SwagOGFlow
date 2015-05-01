@@ -13,12 +13,7 @@ class ApplicationController < ActionController::Base
       redirect_to signin_path
     end
   end
-
-  def get_question_path(type)
-    if type.class == Answer
-      question_path(type.question)
-    else
-      question_path(type)
-    end
+  def page_voted_from_path
+    session[:return_to] = request.referrer
   end
 end
