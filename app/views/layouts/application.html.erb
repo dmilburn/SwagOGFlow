@@ -10,7 +10,7 @@
 
 <%= nav_bar do %>
   <%= menu_group do %>
-    <%= menu_item "SwagOGFlow", root_path %>
+    <h2 class="navbar-left" ><%= menu_item "SwagOGFlow", root_path %></h2>
     <% if current_user %>
       <%= menu_item "My profile", user_path(current_user) %>
       <%= menu_item "Create a new question", new_question_path %>
