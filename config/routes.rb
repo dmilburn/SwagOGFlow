@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
 
   root 'questions#index'
+
+  post '/votes', to: 'votes#create'
 end
