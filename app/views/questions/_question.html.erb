@@ -2,6 +2,10 @@
 <%= question.user.name %><br>
 <%= question.body %><br>
 <%= question.created_at %><br>
+Tags:
+<% question.tags.each do |tag|%>
+  <%= tag.name %>
+<% end %><br>
 <%= question.votes %>
 <% if current_user %>
   <%= render '/votes/new' %>
