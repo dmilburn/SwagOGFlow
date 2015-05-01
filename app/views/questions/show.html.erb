@@ -1,7 +1,17 @@
 <%= render @question %>
-
 <% if current_user %>
   <%= render '/answers/new' %>
 <% end %>
+Answers
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.body %></li>
+        <ul>
+        <% answer.responses.each do |response| %>
+           <li><%= response.body %></li>
+        <% end %>
+        </ul>
+  <% end %>
+</ul>
 
 
