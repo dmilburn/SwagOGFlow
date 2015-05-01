@@ -5,6 +5,10 @@ class Answer < ActiveRecord::Base
   belongs_to :user
 
   def count_votes
-    !self.votes.first  ? 0 : self.votes.first.value
+    vote_count = 0
+    self.votes.each do |vote|
+      vote.value += vote_count
+    end
+    vote_count
   end
 end
