@@ -1,6 +1,6 @@
 require 'faker'
 5.times do
-  user = User.create(name: Faker::Name.first_name, password: '123')
+  user = User.create(name: Faker::Name.first_name, password: '123', password_confirmation: '123')
   5.times do
     user.questions.create(title: Faker::Hacker.adjective, body: Faker::Hacker.say_something_smart)
   end
