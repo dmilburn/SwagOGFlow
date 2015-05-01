@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :bounce_guest, only: [:new]
+  before_action :gate_keeper, only: [:new]
 
   def index
     @questions = Question.all
