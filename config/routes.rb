@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
+  resources :tags, :only => [:index, :show]
 
   get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'
