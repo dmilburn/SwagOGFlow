@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
   def count_votes
     vote_count = 0
     self.votes.each do |vote|
-      vote.value += vote_count
+      vote_count +=  vote.value
     end
     vote_count
   end
