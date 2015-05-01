@@ -14,7 +14,7 @@ RSpec.feature "User Sign Up", :type => :feature do
     fill_in "user_password", :with => "password"
     fill_in "user_password_confirmation", :with => "password"
     click_on "Create User"
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("You're signed up!")
   end
 
 end
