@@ -9,7 +9,6 @@ Tags:
 <% question.tags.each do |tag|%>
   <%= tag.name %>
 <% end %><br>
-<%= question.votes %><br>
 <% if current_user %>
   <%= render '/votes/new' %>
 <% end %>
