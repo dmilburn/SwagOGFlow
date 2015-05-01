@@ -5,6 +5,9 @@ class ResponsesController < ApplicationController
     @response = @question.responses.build
   end
 
+  def create
+  end
+
   private
 
   def response_params
