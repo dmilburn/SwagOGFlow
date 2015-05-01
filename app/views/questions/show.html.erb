@@ -13,6 +13,7 @@ Answers
 <ul>
   <% @question.answers.each do |answer| %>
     <li><%= answer.body %></li>
+    <%= link_to "Add Response", new_question_answer_response_path(@question.id, answer.id) %>
         <ul>
         <% answer.responses.each do |response| %>
            <li><%= response.body %></li>
