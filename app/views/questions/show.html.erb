@@ -1,7 +1,4 @@
 <%= render @question %>
-<% if current_user %>
-  <%= render '/votes/new' %>
-<% end %>
 
 <% if current_user %>
   <%= render '/answers/new' %>
