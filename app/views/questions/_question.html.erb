@@ -1,6 +1,10 @@
 <h2><%= link_to question.title, question_path(question) %></h2>
 <%= link_to question.user.name, user_path(question.user.id) %><br>
 <%= question.body %><br>
-<%= question.created_at %>
+<%= question.created_at %><br>
+<%= question.votes %>
+<% if current_user %>
+  <%= render '/votes/new' %>
+<% end %>
 
 
