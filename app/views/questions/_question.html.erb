@@ -9,9 +9,6 @@ Tags:
 <% question.tags.each do |tag|%>
   <%= tag.name %>
 <% end %><br>
-<% if current_user %>
-  <%= render '/votes/new' %>
-<% end %>
 <%= link_to "Add Response", new_question_response_path(question.id) %>
 
 
