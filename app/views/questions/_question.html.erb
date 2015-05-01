@@ -1,0 +1,8 @@
+<h2><%= link_to question.title, question_path(question) %></h2>
+<%= question.body %>
+
+<p><%= link_to "Add Answer", new_question_answer_path(question) %></p>
+<p><%= link_to "Add Response", new_question_response_path(question) %></p>
+<% if question.user == question.user %>
+  <%= link_to "Edit question", edit_question_path(question) %>
+<% end %>
