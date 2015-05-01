@@ -1,6 +1,11 @@
 class AnswersController < ApplicationController
   def create
-    @question = Question.find(params[:id])
-    @answer = @question.answers.build(params)
   end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:body, :question_id, :user_id)
+  end
+
 end
