@@ -22,9 +22,10 @@
   <% end %>
 <% end %>
 
-
- <%= flash[:notice] %>
- <%= yield %>
+<div class="container">
+  <%= flash[:notice] %>
+  <%= yield %>
+</div>
 
 </body>
 </html>
