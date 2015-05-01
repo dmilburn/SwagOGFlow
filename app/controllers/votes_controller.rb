@@ -1,6 +1,5 @@
 class VotesController < ApplicationController
   def create
-
     answer = Answer.find(params[:vote][:votable_id])
     vote = answer.votes.build(vote_params)
     vote.voter_id = current_user.id
