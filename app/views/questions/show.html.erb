@@ -12,7 +12,7 @@ Responses
 Answers
 <ul>
   <% @question.answers.each do |answer| %>
-    <li><%= answer.count_votes %> <%= render 'votes/new'%></li>
+    <li><%= answer.count_votes %> <%= render 'votes/new', locals: {votable: answer} %></li>
     <li><%= answer.body %></li>
     <%= link_to "Add Response", new_question_answer_response_path(@question.id, answer.id) %>
         <ul>
