@@ -14,5 +14,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
+  def get_question_path(type)
+    if type.class == Answer
+      question_path(type.question)
+    else
+      question_path(type)
+    end
+  end
 end
