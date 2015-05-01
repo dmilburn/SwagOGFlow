@@ -1,5 +1,4 @@
-require 'spec-helper'
-
+require 'spec_helper'
 describe QuestionsController do
   context "#index" do
     it "renders successfully to the index view" do
