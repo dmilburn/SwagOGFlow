@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
  has_many :votes, as: :votable
  belongs_to :user
 
- def count_votes
+  def count_votes
     vote_count = 0
     self.votes.each do |vote|
       vote.value += vote_count
