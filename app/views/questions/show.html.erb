@@ -2,6 +2,13 @@
 <% if current_user %>
   <%= render '/answers/new' %>
 <% end %>
+<br>
+Responses
+<ul>
+  <% @question.responses.each do |response| %>
+    <li><%= response.body %></li>
+  <% end %>
+</ul>
 Answers
 <ul>
   <% @question.answers.each do |answer| %>
