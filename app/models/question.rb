@@ -7,6 +7,6 @@ class Question < ActiveRecord::Base
  belongs_to :user
 
  def count_votes
-
- end
+    !self.votes.first  ? 0 : self.votes.first.value
+  end
 end
