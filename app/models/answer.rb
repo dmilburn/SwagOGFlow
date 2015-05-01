@@ -3,4 +3,8 @@ class Answer < ActiveRecord::Base
  has_many :votes, as: :votable
  belongs_to :question
  belongs_to :user
+
+  def count_votes
+
+  end
 end
