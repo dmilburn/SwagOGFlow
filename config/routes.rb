@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :questions, :except => [:destroy] do
-    resources :answers, :except => [:destroy]
+    resources :responses
+    resources :answers, :except => [:destroy] do
+      resources :responses
+    end
   end
 
   resource :session, :only => [:new, :create, :destroy]
