@@ -10,6 +10,14 @@ class AnswersController < ApplicationController
     end
   end
 
+  def select
+    answer = Answer.find(params[:answer_id])
+    question = answer.question
+    answer.update(selected: true)
+    redirect_to question_path(question)
+    # redirect_to root_path
+  end
+
   private
 
   def answer_params

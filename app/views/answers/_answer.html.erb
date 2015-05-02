@@ -4,7 +4,7 @@
 <% if answer.selected %>
   <%= image_tag "check" %>
 <% elsif answer.question.user == current_user %>
-  <%= link_to "Mark this answer as correct" %>
+  <%= link_to "Mark this answer as correct", select_path(answer_id:answer.id), method: 'post' %>
 <% end %></li>
 <%= link_to "Add Response", new_question_answer_response_path(@question, answer) %>
 <ul><%= render answer.responses %></ul>
