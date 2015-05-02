@@ -1,6 +1,4 @@
-<% @answers.each do |answer| %>
   <li><%= answer.count_votes %> <%= render partial: 'votes/new', locals: {votable: answer} %></li>
   <li><%= answer.body %></li>
   <%= link_to "Add Response", new_question_answer_response_path(@question, answer) %>
       <ul><%= render answer.responses %></ul>
-<% end %>
