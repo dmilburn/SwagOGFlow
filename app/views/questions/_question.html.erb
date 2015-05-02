@@ -3,13 +3,13 @@
 <%= question.count_votes %> <%= render partial: 'votes/new', locals: {votable: question} %><br>
 Created at:
 <%= question.created_at %><br>
-<%if current_user == question.user %>
-  <%= link_to 'Edit Question',edit_question_path(question) %><br>
+<% if current_user == question.user %>
+  <%= link_to 'Edit Question', edit_question_path(question) %><br>
 <% end %>
 Tags:
 <div>
   <% question.tags.each do |tag|%>
-  <%=link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
+  <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
   <% end %>
 </div><br>
 
