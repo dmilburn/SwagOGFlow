@@ -1,6 +1,9 @@
 <li><%= answer.count_votes %> <%= render partial: 'votes/new', locals: {votable: answer} %></li>
 <li><%= answer.body %></li>
-<li><% if answer.question.user == current_user %>
+<li>
+<% if answer.selected %>
+  <%= "checkmark" %>
+<% elsif answer.question.user == current_user %>
   <%= link_to "Mark this answer as correct" %>
 <% end %></li>
 <%= link_to "Add Response", new_question_answer_response_path(@question, answer) %>
