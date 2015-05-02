@@ -20,8 +20,7 @@ class Question < ActiveRecord::Base
 
   def create_tags(array_of_tags)
     array_of_tags.each do |tag_name|
-      tag = Tag.find_or_create_by(name: tag_name)
-      tag.question_tags.create(question_id: self.id)
+      self.tags.find_or_create_by(name: tag_name)
     end
   end
 
