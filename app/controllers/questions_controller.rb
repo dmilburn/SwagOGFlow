@@ -18,6 +18,8 @@ class QuestionsController < ApplicationController
   def create
     question = current_user.questions.build(question_params)
     if question.save
+      tags_array = params[:question][:string_of_tags].split(" ")
+      question.create_tags(tags_array)
       flash[:notice] = "Your question has been posted!"
       redirect_to question_path(question)
     else
@@ -33,11 +35,18 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    @tags = @question.tags
   end
 
   def update
     question = Question.find(params[:id])
     if question.update_attributes(question_params)
+      new_tags = params[:question][:string_of_tags].split(" ")
+      old_tags = question.string_of_tags.split(" ")
+      tags_to_remove = old_tags - new_tags
+      tags_to_create = new_tags - old_tags
+      question.create_tags(tags_to_create)
+      question.remove_tags(tags_to_remove)
       redirect_to question_path(question)
     else
       redirect_to edit_question_path(question)
