@@ -2,7 +2,7 @@
 <li><%= answer.body %></li>
 <li>
 <% if answer.selected %>
-  <%= "checkmark" %>
+  <%= image_tag "check" %>
 <% elsif answer.question.user == current_user %>
   <%= link_to "Mark this answer as correct" %>
 <% end %></li>
