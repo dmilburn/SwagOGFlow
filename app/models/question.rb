@@ -15,6 +15,6 @@ class Question < ActiveRecord::Base
   end
 
   def tag_list
-    self.tags.map { |t| t.name }.join(", ")
+    self.tags.map { |t| t.name }.join(" ")
   end
 end

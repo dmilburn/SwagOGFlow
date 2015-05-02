@@ -43,6 +43,18 @@ class QuestionsController < ApplicationController
   def update
     question = Question.find(params[:id])
     if question.update_attributes(question_params)
+      new_tags = params[:question][:tag_list].split(" ")
+      old_tags = question.tag_list.split(" ")
+      tags_to_remove = old_tags - new_tags
+      tags_to_create = new_tags - old_tags
+      tags_to_create.each do |tag_name|
+        tag = Tag.find_or_create_by(name: tag_name)
+        tag.question_tags.create(question_id: question.id)
+      end
+      tags_to_remove.each do |tag_name|
+        tag = Tag.find_by(name: tag_name)
+        question.question_tags.find_by(tag_id: tag.id).destroy
+      end
       redirect_to question_path(question)
     else
       redirect_to edit_question_path(question)
