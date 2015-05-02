@@ -11,7 +11,7 @@ Created at:
 Tags:
 <div>
   <% question.tags.each do |tag|%>
-  <a class="btn btn-primary btn-xs" href="#" role="button"><%= tag.name %></a>
+  <%=link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
   <% end %>
 </div><br>
 <%= link_to "Add Response", new_question_response_path(question.id) %>
