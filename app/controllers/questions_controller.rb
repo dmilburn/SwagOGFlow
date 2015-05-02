@@ -18,10 +18,8 @@ class QuestionsController < ApplicationController
   def create
     question = current_user.questions.build(question_params)
     if question.save
-      tags_array = params[:question][:tag_list].split(",")
-      tags_array.each do |tag_name|
-        question.tags.find_or_create_by(name: tag_name)
-      end
+      tags_array = params[:question][:tag_list].split(" ")
+      question.create_tags(tags_array)
       flash[:notice] = "Your question has been posted!"
       redirect_to question_path(question)
     else
