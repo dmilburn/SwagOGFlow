@@ -5,7 +5,7 @@ Body:
 <%= question.body %><br>
 Created at:
 <%= question.created_at %><br>
-<%if current_user = question.user_id %>
+<%if current_user == question.user %>
   <%= link_to 'Edit Question',edit_question_path(question) %><br>
 <% end %>
 Tags:
