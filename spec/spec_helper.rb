@@ -5,6 +5,8 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'rack/test'
 
+FactoryGirl.find_definitions
+
 Capybara.register_driver :chrome do |app|
  Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
@@ -13,7 +15,7 @@ Capybara.javascript_driver = :chrome
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
 
