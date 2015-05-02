@@ -1,7 +1,8 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = Tag.all
+    @tags = Tag.order(:name)
+    @tags = @tags.select{|tag| tag.questions.length > 0}
   end
 
   def show
