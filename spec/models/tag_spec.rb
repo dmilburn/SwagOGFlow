@@ -1,6 +1,6 @@
 require 'spec_helper'
 describe Tag do
-  let!(:question) { FactoryGirl.build :question}
+  let!(:question) {Question.create(title: "Stuck", body: "Need Help")}
   let(:tag) { FactoryGirl.build :tag }
   it "should have a name" do
     expect(tag.name).to eq "test_tag"
