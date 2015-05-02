@@ -14,7 +14,9 @@ class Question < ActiveRecord::Base
     vote_count
   end
 
-  def tag_list
+  def string_of_tags
     self.tags.map { |t| t.name }.join(" ")
   end
+
+  
 end
