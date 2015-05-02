@@ -1,19 +1,17 @@
 <h2><%= link_to question.title, question_path(question) %></h2>
-<%= link_to question.user.name, user_path(question.user.id) %><br>
+<%= link_to question.user.name, user_path(question.user) %><br>
 <%= question.count_votes %> <%= render partial: 'votes/new', locals: {votable: question} %><br>
-Body:
-<%= question.body %><br>
 Created at:
 <%= question.created_at %><br>
-<%if current_user = question.user_id %>
-  <%= link_to 'Edit Question',edit_question_path(question) %><br>
+<% if current_user == question.user %>
+  <%= link_to 'Edit Question', edit_question_path(question) %><br>
 <% end %>
 Tags:
 <div>
   <% question.tags.each do |tag|%>
-  <%=link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
+  <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
   <% end %>
 </div><br>
-<%= link_to "Add Response", new_question_response_path(question.id) %>
+
 
 

@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   post '/votes', to: 'votes#create'
 
   get '/popular', to: 'questions#popular'
+
+  post '/select', to: 'answers#select'
 end

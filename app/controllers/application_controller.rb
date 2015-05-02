@@ -13,7 +13,12 @@ class ApplicationController < ActionController::Base
       redirect_to signin_path
     end
   end
+
   def page_voted_from_path
     session[:return_to] = request.referrer
+  end
+
+  def sort_by_popularity(array_of_objects)
+    array_of_objects.sort{|a, b| b.count_votes <=> a.count_votes}
   end
 end

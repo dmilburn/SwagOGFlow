@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
 
   def popular
     @questions = Question.all
-    @questions = @questions.sort{|a, b| b.count_votes <=> a.count_votes}
+    sort_by_popularity(@questions)
   end
 
   def new
@@ -31,6 +31,10 @@ class QuestionsController < ApplicationController
   def show
     @answer = Answer.new
     @question = Question.find(params[:id])
+    @answers = @question.answers
+    @answers = sort_by_popularity(@answers)
+    @answers = sort_by_selected(@answers)
+    @responses = @question.responses
   end
 
   def edit
@@ -57,6 +61,10 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:title, :body, :user_id)
+  end
+  def sort_by_selected(answers_array)
+    answers_array = answers_array.partition{|answer| answer.selected }
+    answers_array[0] + answers_array[1]
   end
 
 end
