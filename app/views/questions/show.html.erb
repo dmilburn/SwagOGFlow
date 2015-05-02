@@ -1,4 +1,8 @@
-<%= render @question %>
+<%= render @question %><br>
+<%= @question.body %><br>
+
+<%= link_to "Add Response", new_question_response_path(@question) %>
+
 <% if current_user %>
   <%= render '/answers/new' %>
 <% end %>

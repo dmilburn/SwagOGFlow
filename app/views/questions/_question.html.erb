@@ -1,8 +1,8 @@
 <h2><%= link_to question.title, question_path(question) %></h2>
 <%= link_to question.user.name, user_path(question.user.id) %><br>
 <%= question.count_votes %> <%= render partial: 'votes/new', locals: {votable: question} %><br>
-Body:
-<%= question.body %><br>
+
+
 Created at:
 <%= question.created_at %><br>
 <%if current_user == question.user %>
@@ -14,6 +14,6 @@ Tags:
   <%=link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
   <% end %>
 </div><br>
-<%= link_to "Add Response", new_question_response_path(question.id) %>
+
 
 
