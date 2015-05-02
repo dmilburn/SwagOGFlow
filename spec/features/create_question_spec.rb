@@ -5,7 +5,6 @@ feature 'New Question' do
   context "Adding tags" do
     it "should display the tags field to add tags" do
       stub_current_user(user)
-      stub_authorize_user!
       visit new_question_path
       expect(page).to have_content "Tags"
     end
