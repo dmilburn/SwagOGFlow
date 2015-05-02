@@ -33,6 +33,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    @tags = @question.tags
   end
 
   def update
