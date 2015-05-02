@@ -33,6 +33,8 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @answers = @answers.sort{|a, b| b.count_votes <=> a.count_votes}
+    @answers = @answers.partition{|answer| answer.selected }
+    @answers = @answers[0] + @answers[1]
     @responses = @question.responses
   end
 
