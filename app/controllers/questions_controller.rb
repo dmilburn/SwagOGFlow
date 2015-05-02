@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
     @question = Question.find(params[:id])
     @answers = @question.answers
+    @answers = @answers.sort{|a, b| b.count_votes <=> a.count_votes}
     @responses = @question.responses
   end
 
