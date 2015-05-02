@@ -5,9 +5,7 @@
 <br>
 Responses
 <ul>
-  <% @question.responses.each do |response| %>
-    <li><%= response.body %></li>
-  <% end %>
+  <%= render @responses %>
 </ul>
 Answers
 <ul>
