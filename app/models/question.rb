@@ -15,7 +15,7 @@ class Question < ActiveRecord::Base
   end
 
   def string_of_tags
-    self.tags.map { |t| t.name }.join(" ")
+    self.tags.map { |tag| tag.name }.join(" ")
   end
 
   def create_tags(array_of_tags)
