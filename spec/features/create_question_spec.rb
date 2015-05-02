@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'New Question' do
   let(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
-  context "A user can create a new question" do
+  context "Adding tags" do
     it "should allow you to create tags" do
       stub_current_user(user)
       stub_authorize_user!
