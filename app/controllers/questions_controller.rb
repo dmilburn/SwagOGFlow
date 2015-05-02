@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
 
   def popular
     @questions = Question.all
-    @questions = @questions.sort{|a, b| b.count_votes <=> a.count_votes}
+    sort_by_popularity(@questions)
   end
 
   def new
