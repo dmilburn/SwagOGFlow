@@ -47,6 +47,8 @@ class QuestionsController < ApplicationController
       old_tags = question.string_of_tags.split(" ")
       tags_to_remove = old_tags - new_tags
       tags_to_create = new_tags - old_tags
+      question.create_tags(tags_to_create)
+      question.remove_tags(tags_to_remove)
       redirect_to question_path(question)
     else
       redirect_to edit_question_path(question)
