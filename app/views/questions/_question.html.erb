@@ -1,22 +1,36 @@
-<%= render partial: 'votes/new', locals: {votable: question} %>
+<ol class="breadcrumb">
 
-<a href="<%= question_path(question) %>">Answers <span class="badge"><%= question.answers.count %></span></a>
+  <li>
+    <%= render partial: 'votes/new', locals: {votable: question} %>
+  </li>
 
-<div class="vote_header">
-  <h2><%= link_to question.title, question_path(question) %></h2>
-</div>
-<%= link_to question.user.name, user_path(question.user) %><br>
-Created <%= human_friendly_date(question) %><br>
+  <li>
+    <a href="<%= question_path(question) %>">Answers <span class="badge"><%= question.answers.count %></span></a>
+  </li>
 
-<% if current_user == question.user %>
+    <div class="vote_header">
+      <h3><%= link_to question.title, question_path(question) %></h3>
+      <p>
+        <%= link_to question.user.name, user_path(question.user) %><br>
+        Created <%= human_friendly_date(question) %><br>
+      </p>
+    </div>
+
+  <% if current_user == question.user %>
   <%= link_to 'Edit Question', edit_question_path(question) %><br>
 <% end %>
-Tags:
 <div>
   <% question.tags.each do |tag|%>
   <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
   <% end %>
-</div><br>
+</div>
+</ol>
+
+
+
+
+
+
 
 
 
