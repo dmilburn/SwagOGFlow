@@ -23,5 +23,11 @@ feature 'Voting' do
        click_on("Downvote")
       expect(page).to have_content "0"
     end
+    it "should not allow the same user to vote on the same question again" do
+      stub_current_user(user2)
+      visit root_path
+      click_on("Downvote")
+      expect(page).to have_content "0"
+    end
   end
 end
