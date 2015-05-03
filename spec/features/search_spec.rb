@@ -13,6 +13,13 @@ feature 'Search' do
        click_button "Search"
        expect(page).to have_content "question_title"
      end
+      it "should allow you to search for partial strings in question titles and bodies" do
+      user.questions.create(title: "question_title", body: "question_body")
+       visit root_path
+       fill_in "search",   with: "qu"
+       click_button "Search"
+       expect(page).to have_content "question_title"
+     end
 
 
   end
