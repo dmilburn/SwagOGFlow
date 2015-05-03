@@ -6,9 +6,7 @@ class VotesController < ApplicationController
     if type_instance.votes.find_by(voter_id: current_user.id)
        redirect_to page_voted_from_path
     else
-      vote = type_instance.votes.build(vote_params)
-      vote.voter_id = current_user.id
-      vote.save
+      vote = type_instance.votes.create(vote_params)
       redirect_to page_voted_from_path
     end
   end
