@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature "Question Viewing", :type => :feature do
 
-  let(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
+  let(:user) { User.create(name: "username", password: 'password', password_confirmation: 'password')}
 
   scenario "A user can see questions on the root path" do
     user.questions.create(title: "Testing Questions",

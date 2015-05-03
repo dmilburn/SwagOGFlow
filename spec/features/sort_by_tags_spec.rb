@@ -1,5 +1,5 @@
 feature 'Sort by Tags' do
-  let!(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
+  let!(:user) { User.create(name: "username", password: 'password', password_confirmation: 'password')}
   let!(:question) {user.questions.create(title: "question_title", body: "question_body")}
     context "Navigate from index page to tags page" do
     it "should display the list of tags link" do

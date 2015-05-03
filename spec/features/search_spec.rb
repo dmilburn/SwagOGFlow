@@ -1,5 +1,5 @@
 feature 'Search' do
-  let!(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
+  let!(:user) { User.create(name: "username", password: 'password', password_confirmation: 'password')}
   context "Searching from root page" do
     it "should display search bar" do
       visit root_path

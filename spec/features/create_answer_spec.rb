@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature 'Answers' do
 
-  let(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
+  let(:user) { User.create(name: "username", password: 'password', password_confirmation: 'password')}
 
   scenario "should allow a logged in user to answer a question" do
     stub_current_user(user)
