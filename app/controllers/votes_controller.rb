@@ -1,9 +1,9 @@
 class VotesController < ApplicationController
+  before_action :gate_keeper, only: [:create]
   def create
     votable_type = (params[:vote][:votable_type]).constantize
     type_instance = votable_type.find(params[:vote][:votable_id])
-    vote = type_instance.votes.create(vote_params)
-    vote.voter_id = current_user.id
+    vote_if_havent_voted(type_instance)
     redirect_to page_voted_from_path
   end
 
