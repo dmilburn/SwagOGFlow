@@ -1,13 +1,28 @@
-<%= render @question %><br>
-<%= @question.body %><br>
-<%= link_to "Add Response", new_question_response_path(@question) %>
-<% if current_user %>
-  <%= render '/answers/new' %>
-<% end %>
-<br>
-Responses
-<ul><%= render @responses %></ul>
-Answers
-<ul><%= render @answers %></ul>
+<%= render @question %>
+<table class="table">
+  <tr>
+    <td>
+      <%= @question.body %>
+      <%= link_to "Add Response", new_question_response_path(@question) %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <% if current_user %>
+        <%= render '/answers/new' %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Responses
+    <ul><%= render @responses %></ul></td>
+  </tr>
+  <tr>
+    <td>Answers
+    <ul><%= render @answers %></ul></td>
+  </tr>
+</table>
+
 
 
