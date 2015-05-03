@@ -3,5 +3,7 @@ class Vote < ActiveRecord::Base
   belongs_to :voter, class_name: "User"
   belongs_to :votable, polymorphic: true
 
-
+  def set_user
+    self.voter_id = current_user.id
+  end
 end
