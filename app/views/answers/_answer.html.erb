@@ -1,4 +1,4 @@
-<li><%= answer.count_votes %> <%= render partial: 'votes/new', locals: {votable: answer} %></li>
+<%= render partial: 'votes/new', locals: {votable: answer} %>
 <li><%= answer.body %></li>
 <li>
 <% if answer.selected %>
