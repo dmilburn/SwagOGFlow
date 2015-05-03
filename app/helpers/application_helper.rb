@@ -8,6 +8,7 @@ module ApplicationHelper
     end
   end
   def human_friendly_date(object)
+    if created_ago(object)[0..1] == "1 "
       array = created_ago(object).split(" ")
       array[1] = array[1].singularize
       array.join(" ")
