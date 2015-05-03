@@ -16,5 +16,11 @@ feature 'Voting' do
       click_on("Upvote")
       expect(page).to have_content "1"
     end
+    it "should allow a user to downvote a question" do
+      stub_current_user(user2)
+      visit root_path
+       click_on("Downvote")
+      expect(page).to have_content "0"
+    end
   end
 end
