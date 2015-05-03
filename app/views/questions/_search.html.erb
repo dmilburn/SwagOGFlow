@@ -1,1 +1,6 @@
-_search.html.erb
+<%= form_tag questions_path, method: 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
