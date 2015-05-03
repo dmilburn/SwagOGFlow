@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 RSpec.feature "Question Viewing", :type => :feature do
+
+  let(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
+
   scenario "A user can see questions on the root path" do
-    user = User.create(name: "test_user",
-                  password: "password",
-                  password_confirmation: "password")
     user.questions.create(title: "Testing Questions",
                          body: "SwagOGFlow Question")
     visit root_path
@@ -12,9 +12,6 @@ RSpec.feature "Question Viewing", :type => :feature do
   end
 
   scenario "A user can click on a question and view its body" do
-    user = User.create(name: "test_user",
-                  password: "password",
-                  password_confirmation: "password")
     user.questions.create(title: "Testing Questions",
                           body: "SwagOGFlow Question Body")
     visit root_path
