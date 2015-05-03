@@ -12,6 +12,14 @@ feature 'Sort by Tags' do
       click_on "List of tags"
       expect(page).to have_content "tag_name"
     end
+    it "should redirect to a page with the questions containing the tag you click" do
+      question.tags.create(name: "tag_name")
+      visit root_path
+      click_on "List of tags"
+      click_on "tag_name"
+      expect(page).to have_content "question_title"
+    end
+
 
   end
 end
