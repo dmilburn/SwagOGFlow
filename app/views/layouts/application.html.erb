@@ -8,21 +8,47 @@
 </head>
 <body>
 
-<%= nav_bar do %>
-  <%= menu_group do %>
-    <h2 class="navbar-left" ><%= menu_item "SwagOGFlow", root_path %></h2>
-    <%= menu_item "List of tags", tags_path %>
-    <% if current_user %>
-      <%= menu_item "My profile", user_path(current_user) %>
-      <%= menu_item "Create a new question", new_question_path %>
-      <%= menu_item "Sign out", signout_path %>
-    <% else %>
-      <%= menu_item "Sign up", signup_path %>
-      <%= menu_item "Sign in", signin_path %>
-    <% end %>
-    <%= menu_item render '/layouts/search' %>
-  <% end %>
-<% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+     <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">SwagOGFlow</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <% if current_user %>
+        <li><a href="<%= new_question_path %>">Create a new question</a></li>
+        </li>
+      <% end %>
+      </ul>
+
+      <%= render '/layouts/search' %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= tags_path %>">List of tags</a></li>
+        <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="<%= user_path(current_user) %>">My profile</a></li>
+              <li class="divider"></li>
+              <li><a href="<%= signout_path %>">Sign out</a></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><a href="<%= signup_path %>">Sign up</a></li>
+          <li><a href="<%= signin_path %>">Sign in</a></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <div class="container">
   <%= flash[:notice] %>
