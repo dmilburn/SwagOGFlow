@@ -10,4 +10,7 @@ describe Answer do
       question.answers << answer
       }.to change {question.answers.count}.from(0).to(1)
   end
+  it "should have a default selected value of false" do
+    expect(answer.selected).to eq false
+  end
 end
