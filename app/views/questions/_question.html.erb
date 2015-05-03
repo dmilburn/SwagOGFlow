@@ -1,19 +1,41 @@
-<%= render partial: 'votes/new', locals: {votable: question} %><br>
-<div class="vote_header">
-  <h2><%= link_to question.title, question_path(question) %></h2>
-</div>
-<%= link_to question.user.name, user_path(question.user) %><br>
-Created <%= human_friendly_date(question) %><br>
+<table class="table">
+<tr>
+  <td>
+    <%= render partial: 'votes/new', locals: {votable: question} %>
+  </td>
 
-<% if current_user == question.user %>
-  <%= link_to 'Edit Question', edit_question_path(question) %><br>
-<% end %>
-Tags:
-<div>
-  <% question.tags.each do |tag|%>
-  <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
-  <% end %>
-</div><br>
+  <td>
+    <a href="<%= question_path(question) %>">Answers <span class="badge"><%= question.answers.count %></span></a>
+  </td>
+
+  <td>
+    <h3><%= link_to question.title, question_path(question) %></h3>
+    <p>
+      <%= link_to question.user.name, user_path(question.user) %>
+      <i>created <%= human_friendly_date(question) %></i>
+    </p>
+    <p>
+      <% if current_user == question.user %>
+        <%= link_to 'Edit Question', edit_question_path(question) %>
+      <% end %>
+    </p>
+  </td>
+
+  <td>
+    <div>
+      <% question.tags.each do |tag|%>
+      <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
+      <% end %>
+    </div>
+  </td>
+
+</tr>
+
+
+
+
+
+
 
 
 
