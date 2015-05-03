@@ -1,3 +1,4 @@
+<%= render partial: 'votes/new', locals: {votable: question} %><br>
 <div class="vote_header">
   <h2><%= link_to question.title, question_path(question) %></h2>
 </div>
