@@ -31,4 +31,12 @@ class Question < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    if search
+      self.where('title LIKE ? or body LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      self.all.order(created_at: :desc)
+    end
+  end
+
 end
