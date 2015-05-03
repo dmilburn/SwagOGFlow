@@ -2,7 +2,7 @@
 <%= link_to question.user.name, user_path(question.user) %><br>
 <%= question.count_votes %> <%= render partial: 'votes/new', locals: {votable: question} %><br>
 Created at:
-<%= question.created_at %><br>
+<%= human_friendly_date(question) %><br>
 <% if current_user == question.user %>
   <%= link_to 'Edit Question', edit_question_path(question) %><br>
 <% end %>
