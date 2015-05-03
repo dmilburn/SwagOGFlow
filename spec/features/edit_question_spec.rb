@@ -22,4 +22,19 @@ RSpec.feature "Question Editing", :type => :feature do
     expect(page).to have_content "Edit Question"
     expect(page).to have_content "Title"
   end
+
+  scenario "A user edit questions they have created" do
+    user.questions.create(title: "Testing Questions",
+                         body: "SwagOGFlow Question")
+    stub_current_user(user)
+    visit root_path
+    click_on "Testing Questions"
+    click_on "Edit Question"
+    fill_in "question_title", :with => "Testing Questions Edit"
+    fill_in "question_body", :with => "SwagOGFlow Question Edit"
+    click_on "Update Question"
+    expect(page).to have_content "Testing Questions Edit"
+    expect(page).to have_content "SwagOGFlow Question Edit"
+  end
+
 end
