@@ -35,7 +35,7 @@ class Question < ActiveRecord::Base
     if search
       find(:all, :conditions => ['title LIKE ? or body LIKE ?', "%#{search}%"])
     else
-      find(:all)
+      find(:all).order(created_at: :desc)
     end
   end
 
