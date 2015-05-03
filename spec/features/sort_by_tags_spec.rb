@@ -19,7 +19,5 @@ feature 'Sort by Tags' do
       click_on "tag_name"
       expect(page).to have_content "question_title"
     end
-
-
   end
 end
