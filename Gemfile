@@ -46,5 +46,6 @@ group :development, :test do
   gem 'factory_girl'
   gem 'database_cleaner'
   gem 'capybara', '~> 2.4'
+  gem 'rack_session_access'
 end
 
