@@ -1,7 +1,6 @@
 <h3>Top Questions</h3>
 
-<div> Sort by: <%= link_to "Recently Added", root_path %>, <%= link_to "Popularity", popular_path %> </div>
-
+<%= render 'question_sort_bar' %>
 <%= render @questions %>
 
 
