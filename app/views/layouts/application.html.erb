@@ -7,8 +7,58 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
- <%= flash[:notice] %>
- <%= yield %>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+     <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">SwagOGFlow</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <% if current_user %>
+        <li><a href="<%= new_question_path %>">Create a new question</a></li>
+        </li>
+      <% end %>
+      </ul>
+
+      <%= render '/layouts/search' %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= tags_path %>">List of tags</a></li>
+        <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="<%= user_path(current_user) %>">My profile</a></li>
+              <li class="divider"></li>
+              <li><a href="<%= signout_path %>">Sign out</a></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><a href="<%= signup_path %>">Sign up</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" name="sign_in" id="sign_in">Sign In<strong class="caret"></strong></a>
+            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+              <%= render 'sessions/signin' %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  <%= flash[:notice] %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

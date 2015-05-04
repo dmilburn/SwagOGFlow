@@ -1,0 +1,10 @@
+<form class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+  <%= form_tag questions_path, method: 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+  <% end %>
+  </div>
+</form>
