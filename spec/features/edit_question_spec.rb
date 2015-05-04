@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature "Question Editing", :type => :feature do
 
-  let(:user) { User.create(name: "username", password: '123', password_confirmation: '123')}
+  let(:user) { User.create(name: "username", password: 'password', password_confirmation: 'password')}
 
   scenario "A user cannot view the edit form on questions they have not created" do
     user.questions.create(title: "Testing Questions",
