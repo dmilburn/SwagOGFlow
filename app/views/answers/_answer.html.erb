@@ -1,3 +1,15 @@
+<table class="table">
+<tr>
+  <td style="width: 5%">
+    <%= render partial: 'votes/new', locals: {votable: answer} %>
+  </td>
+  <td style="width: 5%">
+      <% if answer.selected %>
+        <%= image_tag "check" %>
+     <% end %>
+  </td>
+  <td><%= answer.body %></td>
+</table>
 <% if !answer.question.answered && answer.question.user == current_user %>
     <%= link_to "Mark this answer as correct", select_path(answer_id:answer.id), method: 'post' %>
 <% end %>
