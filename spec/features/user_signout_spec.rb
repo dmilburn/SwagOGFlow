@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 RSpec.feature "User Sign Out", :type => :feature do
+
+  let!(:user) { User.create(name: "username", password: 'password', password_confirmation: 'password')}
+
   scenario "A user can sign out" do
-    User.create(name: "test_user",
-                password: "password",
-                password_confirmation: "password")
-    visit signin_path
-    fill_in "session_name", :with => "test_user"
-    fill_in "session_password", :with => "password"
-    click_on "Save Session"
+    page.set_rack_session(user_id: user.id)
+    visit root_path
+    click_on "username"
     click_on "Sign out"
     expect(page).to have_content("Logged out!")
   end
