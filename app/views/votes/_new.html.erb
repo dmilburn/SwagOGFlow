@@ -1,3 +1,20 @@
-<%= link_to image_tag("upvote.png"), votes_path(vote: {votable_id: votable.id, value: 1, votable_type: votable.class}), method: 'post' %>
-<br><%= votable.count_votes %><br>
-<%= link_to image_tag("downvote.png"), votes_path(vote: {votable_id: votable.id, value: -1, votable_type: votable.class}), method: 'post'%>
+<table>
+  <tr>
+    <td>
+      <th class="col-md-6"><%= link_to image_tag("upvote.png"), votes_path(vote: {votable_id: votable.id, value: 1, votable_type: votable.class}), method: 'post' %>
+      </th>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <th class="col-md-6"><%= votable.count_votes %></th>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <th class="col-md-6">
+        <%= link_to image_tag("downvote.png"), votes_path(vote: {votable_id: votable.id, value: -1, votable_type: votable.class}), method: 'post'%>
+      </th>
+    </td>
+  </tr>
+</table>

@@ -1,35 +1,43 @@
 <table class="table">
 <tr>
+
   <td>
-    <%= render partial: 'votes/new', locals: {votable: question} %>
+    <th style="width: 10%"> <%= render partial: 'votes/new', locals: {votable: question} %></th>
   </td>
 
   <td>
-    <a href="<%= question_path(question) %>">Answers <span class="badge"><%= question.answers.count %></span></a>
+    <th style="width: 5%">
+      <a href="<%= question_path(question) %>">Answers <span class="badge"><%= question.answers.count %></span></a>
+    <th>
   </td>
 
   <td>
-    <h3><%= link_to question.title, question_path(question) %></h3>
-    <p>
-      <%= link_to question.user.name, user_path(question.user) %>
-      <i>created <%= human_friendly_date(question) %></i>
-    </p>
-    <p>
-      <% if current_user == question.user %>
-        <%= link_to 'Edit Question', edit_question_path(question) %>
-      <% end %>
-    </p>
+    <th style="width: 25%">
+      <h4><%= link_to question.title, question_path(question) %></h4>
+      <p>
+        <%= link_to question.user.name, user_path(question.user) %>
+        <i>created <%= human_friendly_date(question) %></i>
+      </p>
+      <p>
+        <% if current_user == question.user %>
+          <%= link_to 'Edit Question', edit_question_path(question) %>
+        <% end %>
+      </p>
+    </th>
   </td>
 
   <td>
     <div>
-      <% question.tags.each do |tag|%>
-      <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
-      <% end %>
+      <th style="width: 50%">
+        <% question.tags.each do |tag|%>
+        <%= link_to tag.name, tag_path(tag), html_options = {class:"btn btn-primary btn-xs", role:"button"} %>
+        <% end %>
+      </th>
     </div>
   </td>
 
 </tr>
+</table>
 
 
 
