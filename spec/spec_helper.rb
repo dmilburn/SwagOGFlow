@@ -4,6 +4,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'rack/test'
+require "rack_session_access/capybara"
 
 FactoryGirl.find_definitions
 
