@@ -2,7 +2,7 @@
 <table class="table">
   <tr>
     <td>
-      <%= @question.body %>
+      <%= @question.body %><br>
       <%= link_to "Add Response", new_question_response_path(@question) %>
     </td>
   </tr>
@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <td>Answers
-    <ul><%= render @answers %></ul></td>
+    <%= render @answers %></td>
   </tr>
 </table>
 

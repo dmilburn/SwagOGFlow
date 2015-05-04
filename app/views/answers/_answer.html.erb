@@ -1,10 +1,18 @@
-<%= render partial: 'votes/new', locals: {votable: answer} %>
-<li><%= answer.body %></li>
-<li>
-<% if answer.selected %>
-  <%= image_tag "check" %>
-<% elsif answer.question.user == current_user %>
-  <%= link_to "Mark this answer as correct", select_path(answer_id:answer.id), method: 'post' %>
-<% end %></li>
+<table class="table">
+<tr>
+  <td style="width: 5%">
+    <%= render partial: 'votes/new', locals: {votable: answer} %>
+  </td>
+  <td style="width: 5%">
+      <% if answer.selected %>
+        <%= image_tag "check" %>
+     <% end %>
+  </td>
+  <td><%= answer.body %></td>
+</table>
+<% if !answer.question.answered && answer.question.user == current_user %>
+    <%= link_to "Mark this answer as correct", select_path(answer_id:answer.id), method: 'post' %>
+<% end %>
+<br>
 <%= link_to "Add Response", new_question_answer_response_path(@question, answer) %>
 <ul><%= render answer.responses %></ul>
