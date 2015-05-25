@@ -1,1 +1,1 @@
-This is a clone of Stack Overflow using rails and bootstrap.
+This is a work in progress clone of Stack Overflow using rails and bootstrap.
